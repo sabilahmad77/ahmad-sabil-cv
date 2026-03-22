@@ -1446,8 +1446,11 @@ gsap.registerPlugin(ScrollTrigger);
   const targetPos  = genLatticePoints(NODE_COUNT);
 
   /* ── Node group — InstancedMesh ── */
-  const nodeGeo  = new THREE.SphereGeometry(0.055, 8, 8);
-  const nodeMat  = new THREE.MeshBasicMaterial({ color: COL_NODE });
+  const nodeGeo  = new THREE.SphereGeometry(0.085, 10, 10);
+  const nodeMat  = new THREE.MeshBasicMaterial({
+    color: COL_NODE,
+    transparent: true,
+  });
   const nodeMesh = new THREE.InstancedMesh(nodeGeo, nodeMat, NODE_COUNT);
   nodeMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
   scene.add(nodeMesh);
@@ -1511,7 +1514,7 @@ gsap.registerPlugin(ScrollTrigger);
   }
 
   /* ── Glow sphere (additive, no geometry detail needed) ── */
-  const glowGeo = new THREE.SphereGeometry(3.2, 32, 32);
+  const glowGeo = new THREE.SphereGeometry(3.6, 32, 32);
   const glowMat = new THREE.MeshBasicMaterial({
     color: 0x00C9A7,
     transparent: true,
@@ -1523,16 +1526,30 @@ gsap.registerPlugin(ScrollTrigger);
   const glowMesh = new THREE.Mesh(glowGeo, glowMat);
   crystalGroup.add(glowMesh);
 
+  // Inner core glow — smaller, gold-tinted, adds depth at centre
+  const innerGlowGeo = new THREE.SphereGeometry(1.4, 24, 24);
+  const innerGlowMat = new THREE.MeshBasicMaterial({
+    color: 0xC8961A,
+    transparent: true,
+    opacity: 0,
+    side: THREE.BackSide,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  });
+  const innerGlowMesh = new THREE.Mesh(innerGlowGeo, innerGlowMat);
+  crystalGroup.add(innerGlowMesh);
+
   /* ── Scene state driven by GSAP ── */
   const state = {
     assembleProgress: 0,    // 0→1: nodes fly to positions
     lineOpacity:      0,    // 0→1: lines fade in
-    glowOpacity:      0,    // 0→0.06
+    glowOpacity:      0,    // outer glow
+    innerGlow:        0,    // inner gold core glow
     crystalScale:     1,
     crystalX:         0,    // horizontal drift through sections
     crystalY:         0,    // vertical offset for scroll
     crystalOpacity:   1,    // 1→0 as we enter panel 2
-    cameraZ:          9,
+    cameraZ:          6.5,  // closer camera for impactful hero fill
     rotSpeed:         0.0025,
     mouseX:           0,
     mouseY:           0,
@@ -1581,12 +1598,12 @@ gsap.registerPlugin(ScrollTrigger);
     crystalGroup.scale.setScalar(state.crystalScale * breathe);
 
     // Opacities
-    lineMat.opacity  = state.lineOpacity;
-    glowMat.opacity  = state.glowOpacity;
-    nodeMat.opacity  = state.crystalOpacity;
-    nodeMat.transparent = true;
-    lineMat.transparent = true;
-    crystalGroup.visible = state.crystalOpacity > 0.01;
+    lineMat.opacity        = state.lineOpacity;
+    glowMat.opacity        = state.glowOpacity;
+    innerGlowMat.opacity   = state.innerGlow;
+    nodeMat.opacity        = state.crystalOpacity;
+    lineMat.transparent    = true;
+    crystalGroup.visible   = state.crystalOpacity > 0.01;
 
     camera.lookAt(0, 0, 0);
     renderer.render(scene, camera);
@@ -1616,17 +1633,24 @@ gsap.registerPlugin(ScrollTrigger);
 
   // Lines appear
   loadTl.to(state, {
-    lineOpacity: 0.55,
+    lineOpacity: 0.72,
     duration: 1.6,
     ease: 'power2.inOut',
   }, 0.6);
 
-  // Glow fades in
+  // Outer glow (teal halo around sphere)
   loadTl.to(state, {
-    glowOpacity: 0.055,
+    glowOpacity: 0.14,
     duration: 1.8,
     ease: 'power2.inOut',
   }, 0.8);
+
+  // Inner gold core glow — adds warmth and depth at centre
+  loadTl.to(state, {
+    innerGlow: 0.10,
+    duration: 2.2,
+    ease: 'power2.inOut',
+  }, 1.0);
 
   // Nav fades in
   loadTl.to(['#nav-mark', '#nav-links'], {
@@ -1689,6 +1713,7 @@ gsap.registerPlugin(ScrollTrigger);
     .to(state, { crystalOpacity: 0, duration: 0.7 }, 0.3)
     .to(state, { lineOpacity: 0, duration: 0.5 }, 0.3)
     .to(state, { glowOpacity: 0, duration: 0.5 }, 0.3)
+    .to(state, { innerGlow: 0, duration: 0.4 }, 0.3)
     .to(state, { cameraZ: 5, duration: 1 }, 0)
     // Panel 1 text exits
     .to(['#p1-name', '#p1-title', '#p1-eyebrow', '#p1-stats', '#p1-scroll'], {
