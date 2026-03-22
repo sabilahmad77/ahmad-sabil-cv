@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Sabil — Technical Lead & Blockchain Full-Stack Architect</title>
+  <meta name="description" content="Ahmad Sabil. Technical Lead and Blockchain Full-Stack Architect. CTO at FANN. 6+ years delivering smart contracts, DeFi platforms, and AI-powered systems from Doha, Qatar." />
+  <meta name="keywords" content="Ahmad Sabil, Technical Lead, Blockchain Architect, Web3, Solidity, Smart Contracts, CTO, FANN, Qatar, DeFi, NFT, MERN, React, Node.js" />
+  <meta name="author" content="Ahmad Sabil" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ahmadsabil.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ahmadsabil.com" />
+  <meta property="og:title" content="Ahmad Sabil — Technical Lead & Blockchain Full-Stack Architect" />
+  <meta property="og:description" content="CTO at FANN. 6+ years architecting blockchain systems, Web3 platforms & AI-powered products. Doha, Qatar." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@SabilAhmad77" />
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ahmad Sabil","jobTitle":"Technical Lead & Blockchain Full-Stack Architect","worksFor":{"@type":"Organization","name":"FANN","url":"https://fann.art"},"url":"https://ahmadsabil.com","email":"info@ahmadsabil.com","telephone":"+97450389351","address":{"@type":"PostalAddress","addressLocality":"Doha","addressCountry":"QA"},"sameAs":["https://linkedin.com/in/sabilahmad"],"knowsAbout":["Blockchain","Web3","Solidity","Smart Contracts","DeFi","NFTs","React.js","Node.js","AI/ML"]}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --void:       #020508;
+      --crystal:    #00C9A7;
+      --crystal-d:  rgba(0,201,167,0.22);
+      --gold:       #C8961A;
+      --gold-b:     #E8B84B;
+      --white:      #FFFFFF;
+      --white-60:   rgba(255,255,255,0.60);
+      --white-25:   rgba(255,255,255,0.25);
+      --white-10:   rgba(255,255,255,0.08);
+      --display:    'Space Grotesk', system-ui, sans-serif;
+      --mono:       'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: auto; overflow-x: hidden; }
+
+    body {
+      background: var(--void);
+      color: var(--white);
+      font-family: var(--display);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--void); }
+    ::-webkit-scrollbar-thumb { background: var(--crystal); border-radius: 2px; }
+    ::selection { background: rgba(0,201,167,0.25); }
+
+    /* ── Fixed canvas ── */
+    #c {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      display: block;
+    }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .nav-mark {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--crystal);
+      pointer-events: auto;
+      opacity: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      pointer-events: auto;
+      opacity: 0;
+    }
+
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--white-60);
+      text-decoration: none;
+      transition: color 0.3s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+    .nav-cta:hover {
+      color: var(--crystal);
+      border-color: var(--crystal);
+    }
+    .nav-cta-li {
+      color: var(--crystal);
+      border-bottom-color: var(--crystal-d);
+      font-weight: 500;
+    }
+    .nav-cta-li:hover { color: var(--gold-b); border-color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .nav-cta-phone { display: none; }
+      .nav-links { gap: 20px; }
+    }
+
+    /* ── PANEL ONE: IDENTITY ── */
+    #p1 {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .p1-inner {
+      text-align: center;
+      pointer-events: auto;
+    }
+
+    .p1-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--crystal);
+      margin-bottom: 36px;
+      opacity: 0;
+    }
+
+    .p1-name {
+      font-size: clamp(5rem, 13vw, 11.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 32px;
+      opacity: 0;
+    }
+
+    .p1-name .line-two {
+      display: block;
+      /* Slightly different weight / style for rhythm */
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .p1-title {
+      font-size: clamp(0.8rem, 1.6vw, 1.0625rem);
+      font-weight: 400;
+      color: var(--white-60);
+      letter-spacing: 0.06em;
+      margin-bottom: 56px;
+      opacity: 0;
+    }
+
+    .p1-stats {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      margin-bottom: 56px;
+      opacity: 0;
+    }
+
+    .p1-stat-val {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--gold-b);
+      display: block;
+    }
+
+    .p1-stat-lbl {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-25);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .p1-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .p1-scroll-lbl {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white-25);
+    }
+
+    .p1-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--crystal), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      45%  { transform: scaleY(1); transform-origin: top; }
+      55%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── TRANSITION ZONE ── */
+    /* This creates the scroll space for the pinned animation */
+    #transition-zone {
+      position: relative;
+      z-index: 1;
+      height: 100vh; /* scroll space for the crystal transition */
+    }
+
+    /* ── PANEL TWO: DEPTH ── */
+    #p2 {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Dark glass layer that sits over the canvas for readability */
+    .p2-glass {
+      background: rgba(2,5,8,0.78);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+    }
+
+    /* ── P2 OPENING STATEMENT ── */
+    .p2-statement {
+      padding: 120px 48px 96px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .statement-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--crystal);
+      margin-bottom: 40px;
+      opacity: 0;
+    }
+
+    .statement-text {
+      font-size: clamp(1.75rem, 4vw, 3.25rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      opacity: 0;
+    }
+
+    .statement-text strong {
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    /* ── SECTION DIVIDERS ── */
+    .p2-rule {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 48px;
+      max-width: 1160px;
+      margin: 0 auto 72px;
+      opacity: 0;
+    }
+
+    .p2-rule-lbl {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--crystal);
+      white-space: nowrap;
+    }
+
+    .p2-rule-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--crystal-d), transparent);
+    }
+
+    /* ── PROJECTS ── */
+    .p2-projects {
+      padding: 0 48px;
+      max-width: 1160px;
+      margin: 0 auto 96px;
+    }
+
+    .proj-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 48px;
+      padding: 52px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      opacity: 0;
+      transition: border-color 0.4s;
+    }
+    .proj-item:hover { border-top-color: var(--crystal-d); }
+    .proj-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    .proj-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--white-25);
+      padding-top: 6px;
+      position: sticky;
+      top: 88px;
+      align-self: start;
+    }
+
+    .proj-body {}
+
+    .proj-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .proj-cat {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--crystal);
+    }
+
+    .proj-period {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--white-25);
+    }
+
+    .proj-status-live {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: #10B981;
+      border: 1px solid rgba(16,185,129,0.3);
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+
+    .proj-name {
+      font-size: clamp(1.875rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 18px;
+      line-height: 1.05;
+    }
+
+    .proj-desc {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.8;
+      max-width: 640px;
+      margin-bottom: 24px;
+    }
+
+    .proj-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .proj-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      color: var(--white-25);
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .proj-item:hover .proj-tag {
+      color: rgba(255,255,255,0.45);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .proj-cta-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .proj-cta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--crystal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--crystal-d);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .proj-cta:hover { color: var(--gold-b); border-color: var(--gold); }
+
+    /* ── EXPERIENCE ── */
+    .p2-experience {
+      padding: 0 48px 96px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    /* Company block: one per company */
+    .exp-company-block {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 0 48px;
+      opacity: 0;
+    }
+    .exp-company-block:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    .exp-co-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .exp-co-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .exp-co-location {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .exp-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      padding: 2px 7px;
+      border: 1px solid rgba(16,185,129,0.3);
+      color: #10B981;
+      border-radius: 3px;
+    }
+
+    /* Sub-roles within a company */
+    .exp-subroles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 32px;
+    }
+    .exp-subroles.single { grid-template-columns: 1fr; max-width: 680px; }
+
+    .exp-subrole {
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .exp-subrole:first-child { border-top: none; }
+
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--crystal);
+      margin-bottom: 6px;
+    }
+
+    .exp-role {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .exp-bullets li {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.65);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--crystal);
+      font-size: 0.65rem;
+      top: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .exp-subroles { grid-template-columns: 1fr; }
+    }
+
+    /* ── SKILLS ── */
+    .p2-skills {
+      padding: 0 48px 96px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .sk-group {
+      padding: 28px 28px 28px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      opacity: 0;
+    }
+    .sk-group:nth-child(3n+2) { padding-left: 28px; border-left: 1px solid rgba(255,255,255,0.06); }
+    .sk-group:nth-child(3n+3) { padding-left: 28px; border-left: 1px solid rgba(255,255,255,0.06); }
+
+    .sk-name {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crystal);
+      margin-bottom: 14px;
+    }
+
+    .sk-items {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+      font-family: var(--mono);
+    }
+
+    /* ── CERTIFICATION SUMMARY ── */
+    .cert-summary-block {
+      margin-bottom: 28px;
+    }
+
+    .cert-count-display {
+      font-family: var(--mono);
+      font-size: 3.5rem;
+      font-weight: 500;
+      color: var(--gold-b);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .cert-summary-label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .cert-summary-issuers {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.40);
+      letter-spacing: 0.05em;
+    }
+
+    .cert-pmp-highlight {
+      padding: 20px 24px;
+      border: 1px solid rgba(200,150,26,0.22);
+      border-left: 3px solid var(--gold);
+      background: rgba(200,150,26,0.04);
+      border-radius: 2px;
+    }
+
+    .cert-pmp-badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-b);
+      margin-bottom: 10px;
+    }
+
+    .cert-pmp-name {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 4px;
+    }
+
+    .cert-pmp-issuer {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 8px;
+    }
+
+    .cert-pmp-date {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gold-b);
+      font-weight: 500;
+    }
+
+    /* ── CREDENTIALS STRIP ── */
+    .p2-creds {
+      padding: 72px 48px;
+      max-width: 1160px;
+      margin: 0 auto 0;
+      opacity: 0;
+    }
+
+    .creds-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+    }
+
+    .cred-col-title {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--crystal);
+      margin-bottom: 24px;
+    }
+
+    .cred-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cred-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cred-item:last-child { border-bottom: none; }
+
+    .cred-name {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.4;
+    }
+
+    .cred-issuer {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 3px;
+    }
+
+    .cred-date {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .conf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+    }
+
+    .conf-item {}
+    .conf-item-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 3px;
+    }
+    .conf-item-detail {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.50);
+      letter-spacing: 0.05em;
+    }
+    .conf-item-year {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--crystal);
+      margin-top: 4px;
+    }
+
+    /* ── CONTACT ── */
+    .p2-contact {
+      padding: 96px 48px 120px;
+      max-width: 1160px;
+      margin: 0 auto;
+      opacity: 0;
+    }
+
+    .contact-headline {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 48px;
+    }
+
+    .contact-headline .dim { color: rgba(255,255,255,0.45); font-weight: 300; }
+
+    .contact-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-lbl {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.52);
+    }
+
+    .contact-val {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .contact-val:hover { color: var(--crystal); border-color: var(--crystal); }
+
+    /* ── FOOTER ── */
+    .p2-footer {
+      padding: 28px 48px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-left {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--white-25);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-right {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--white-10);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #nav { padding: 20px 24px; }
+      .p2-statement, .p2-projects, .p2-experience, .p2-skills, .p2-creds, .p2-contact { padding-left: 24px; padding-right: 24px; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .exp-row:nth-child(even) { padding-left: 0; border-left: none; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .sk-group:nth-child(3n+2), .sk-group:nth-child(3n+3) { padding-left: 0; border-left: none; }
+      .creds-inner { grid-template-columns: 1fr; gap: 48px; }
+      .proj-item { grid-template-columns: 1fr; gap: 12px; }
+      .proj-num { position: static; }
+      .p1-stats { gap: 32px; }
+      .p2-footer { padding: 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .sk-group:nth-child(3n+2) { padding-left: 0; border-left: none; }
+      .conf-grid { grid-template-columns: 1fr; }
+      .contact-row { flex-direction: column; align-items: flex-start; gap: 24px; }
+
+      /* ── Mobile readability ── */
+      .p2-statement, .p2-projects, .p2-experience,
+      .p2-skills, .p2-creds, .p2-contact { padding-left: 20px; padding-right: 20px; }
+
+      .statement-text { font-size: clamp(1.35rem, 5.5vw, 2rem); line-height: 1.35; }
+
+      .proj-desc {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.88);
+        line-height: 1.75;
+      }
+
+      .proj-name { font-size: clamp(1.5rem, 7vw, 2.25rem); }
+
+      .proj-tag {
+        font-size: 0.7rem;
+        color: rgba(255,255,255,0.55);
+        border-color: rgba(255,255,255,0.14);
+      }
+
+      .exp-bullets li {
+        font-size: 0.9375rem;
+        color: rgba(255,255,255,0.82);
+        line-height: 1.65;
+      }
+
+      .exp-role { font-size: 1rem; color: rgba(255,255,255,0.92); }
+      .exp-co-name { font-size: 1.125rem; }
+
+      .sk-items {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.75);
+        line-height: 2;
+      }
+
+      .cred-name { font-size: 0.9375rem; color: rgba(255,255,255,0.88); }
+      .cred-issuer { font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+      .cred-date { font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+
+      .conf-item-name { font-size: 0.9375rem; color: rgba(255,255,255,0.88); }
+      .conf-item-detail { font-size: 0.68rem; color: rgba(255,255,255,0.60); }
+
+      .contact-val { font-size: 1rem; color: rgba(255,255,255,0.90); }
+      .contact-lbl { font-size: 0.62rem; color: rgba(255,255,255,0.60); }
+
+      .cert-summary-label { font-size: 1rem; color: rgba(255,255,255,0.90); }
+      .cert-pmp-name { font-size: 1rem; color: rgba(255,255,255,0.92); }
+      .cert-pmp-issuer { font-size: 0.7rem; color: rgba(255,255,255,0.58); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Fixed 3D Canvas -->
+<canvas id="c"></canvas>
+
+<!-- Nav -->
+<nav id="nav">
+  <span class="nav-mark" id="nav-mark">A·S</span>
+  <div class="nav-links" id="nav-links">
+    <a href="https://linkedin.com/in/sabilahmad" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-li">LinkedIn ↗</a>
+    <a href="mailto:info@ahmadsabil.com" class="nav-cta">info@ahmadsabil.com</a>
+    <a href="tel:+97450389351" class="nav-cta nav-cta-phone">+974 50389351</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     PANEL ONE — IDENTITY
+══════════════════════════════════════════════ -->
+<section id="p1">
+  <div class="p1-inner">
+    <div class="p1-eyebrow" id="p1-eyebrow">CTO · FANN · Doha, Qatar</div>
+
+    <h1 class="p1-name" id="p1-name">
+      AHMAD<span class="line-two">SABIL</span>
+    </h1>
+
+    <p class="p1-title" id="p1-title">
+      Technical Lead &nbsp;·&nbsp; Blockchain Full-Stack Architect
+    </p>
+
+    <div class="p1-stats" id="p1-stats">
+      <div>
+        <span class="p1-stat-val" data-count="6" data-sfx="+">0</span>
+        <span class="p1-stat-lbl">Years</span>
+      </div>
+      <div>
+        <span class="p1-stat-val" data-count="60" data-sfx="+">0</span>
+        <span class="p1-stat-lbl">Projects</span>
+      </div>
+      <div>
+        <span class="p1-stat-val" data-count="5" data-sfx="+">0</span>
+        <span class="p1-stat-lbl">Startups</span>
+      </div>
+      <div>
+        <span class="p1-stat-val" data-count="5" data-sfx="+">0</span>
+        <span class="p1-stat-lbl">EVM Chains</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p1-scroll" id="p1-scroll">
+    <span class="p1-scroll-lbl">Scroll</span>
+    <div class="p1-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Scroll space for transition animation -->
+<div id="transition-zone"></div>
+
+<!-- ══════════════════════════════════════════════
+     PANEL TWO — THE WORK
+══════════════════════════════════════════════ -->
+<section id="p2" class="p2-glass">
+
+  <!-- Opening Statement -->
+  <div class="p2-statement">
+    <div class="statement-eyebrow" id="stmt-eyebrow">/ PROFILE</div>
+    <p class="statement-text" id="stmt-text">
+      Results-driven <strong>Technical Lead and Blockchain Full-Stack Architect</strong>
+      with 6+ years delivering production-ready smart contracts, Web3 platforms, and AI-integrated
+      systems — from architecture to deployment. Currently CTO at FANN, Doha. Represented at
+      <strong>LEAP 2025, Web Summit Qatar, and STEP Dubai</strong>.
+    </p>
+  </div>
+
+  <!-- Projects -->
+  <div class="p2-rule" id="rule-projects">
+    <span class="p2-rule-lbl">/ Flagship Projects</span>
+    <div class="p2-rule-line"></div>
+  </div>
+
+  <div class="p2-projects">
+
+    <div class="proj-item" id="proj-01">
+      <div class="proj-num">01</div>
+      <div class="proj-body">
+        <div class="proj-meta-row">
+          <span class="proj-cat">ArtTech · Blockchain · AI/ML</span>
+          <span class="proj-period">Aug 2023 – Present</span>
+          <span class="proj-status-live">● Live</span>
+        </div>
+        <h2 class="proj-name">FANN — Provenance-First Art Marketplace</h2>
+        <p class="proj-desc">
+          Architected a blockchain-powered physical art marketplace across the GCC integrating AI-assisted
+          artwork verification, blockchain provenance certification (Solidity/EVM), NFC/RFID tagging,
+          escrow-secured transactions, and fractional ownership. Led full technical journey from R&amp;D
+          through MVP. Represented at LEAP 2025 (100,000+ attendees), Web Summit Qatar (2024–2026),
+          and STEP Dubai.
+        </p>
+        <div class="proj-stack">
+          <span class="proj-tag">Solidity / EVM</span>
+          <span class="proj-tag">React.js</span>
+          <span class="proj-tag">Node.js</span>
+          <span class="proj-tag">Web3.js</span>
+          <span class="proj-tag">AI / LLM</span>
+          <span class="proj-tag">NFC / RFID</span>
+          <span class="proj-tag">ERC-721 / 1155</span>
+          <span class="proj-tag">MongoDB</span>
+          <span class="proj-tag">AWS</span>
+          <span class="proj-tag">Moralis</span>
+        </div>
+        <div class="proj-cta-row">
+          <a href="https://fann.art" target="_blank" rel="noopener noreferrer" class="proj-cta">Visit fann.art ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-item" id="proj-02">
+      <div class="proj-num">02</div>
+      <div class="proj-body">
+        <div class="proj-meta-row">
+          <span class="proj-cat">Web3 · On-Chain Analytics · DeFi</span>
+          <span class="proj-period">2024</span>
+          <span class="proj-status-live">● Live</span>
+        </div>
+        <h2 class="proj-name">Viko.world — Crypto Token Discovery</h2>
+        <p class="proj-desc">
+          A crypto-enabled Web3 platform for token discovery, trend analysis, and token launch infrastructure.
+          Built scalable backend for token deployment and management — integrating real-time on-chain data
+          processing, market sentiment analysis, and token trend discovery for the evolving Web3 ecosystem.
+        </p>
+        <div class="proj-stack">
+          <span class="proj-tag">React.js</span>
+          <span class="proj-tag">Node.js</span>
+          <span class="proj-tag">Web3.js</span>
+          <span class="proj-tag">Solidity</span>
+          <span class="proj-tag">Real-time Data</span>
+          <span class="proj-tag">On-chain Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-item" id="proj-03">
+      <div class="proj-num">03</div>
+      <div class="proj-body">
+        <div class="proj-meta-row">
+          <span class="proj-cat">AI · E-Commerce · Decision Intelligence</span>
+          <span class="proj-period">2024</span>
+        </div>
+        <h2 class="proj-name">SalesIcon — AI-Powered E-Commerce Platform</h2>
+        <p class="proj-desc">
+          AI-powered e-commerce platform that enhances customer decision-making through intelligent
+          product suggestions while managing inventory using AI-driven systems. Built a centralized
+          decision-intelligence layer delivering personalised recommendations, automated inventory
+          signals, and real-time sales analytics — improving conversion and operational efficiency.
+        </p>
+        <div class="proj-stack">
+          <span class="proj-tag">React.js</span>
+          <span class="proj-tag">Node.js</span>
+          <span class="proj-tag">AI / LLM</span>
+          <span class="proj-tag">MongoDB</span>
+          <span class="proj-tag">Recommendation Engine</span>
+          <span class="proj-tag">Inventory AI</span>
+          <span class="proj-tag">REST APIs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-item" id="proj-04">
+      <div class="proj-num">04</div>
+      <div class="proj-body">
+        <div class="proj-meta-row">
+          <span class="proj-cat">AI · ML / NLP · Compliance</span>
+          <span class="proj-period">2024</span>
+        </div>
+        <h2 class="proj-name">Scan Halal AI — Compliance Verification</h2>
+        <p class="proj-desc">
+          AI-powered compliance platform for instant halal product verification. Built machine learning
+          pipeline to scan product ingredients and certifications — delivering reliable, real-time halal
+          validation with high accuracy across diverse product categories for global B2C and B2B markets.
+        </p>
+        <div class="proj-stack">
+          <span class="proj-tag">Machine Learning</span>
+          <span class="proj-tag">NLP</span>
+          <span class="proj-tag">AI / LLM</span>
+          <span class="proj-tag">React.js</span>
+          <span class="proj-tag">Node.js</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-item" id="proj-05">
+      <div class="proj-num">05</div>
+      <div class="proj-body">
+        <div class="proj-meta-row">
+          <span class="proj-cat">DeFi · DEX · Smart Contracts</span>
+          <span class="proj-period">2023</span>
+        </div>
+        <h2 class="proj-name">LEET Swap — Decentralized Exchange</h2>
+        <p class="proj-desc">
+          DEX platform enabling secure, efficient token swapping with automated market-making and
+          decentralized liquidity pooling. Architected and deployed smart contract infrastructure for
+          peer-to-peer swapping, liquidity pooling, and AMM — full EVM compatibility with on-chain
+          security auditing.
+        </p>
+        <div class="proj-stack">
+          <span class="proj-tag">Solidity / EVM</span>
+          <span class="proj-tag">Web3.js</span>
+          <span class="proj-tag">AMM</span>
+          <span class="proj-tag">Liquidity Pools</span>
+          <span class="proj-tag">React.js</span>
+          <span class="proj-tag">Node.js</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /projects -->
+
+  <!-- Experience -->
+  <div class="p2-rule" id="rule-exp">
+    <span class="p2-rule-lbl">/ Experience</span>
+    <div class="p2-rule-line"></div>
+  </div>
+
+  <div class="p2-experience">
+
+    <!-- FANN — one block, two sub-roles -->
+    <div class="exp-company-block" id="exp-fann">
+      <div class="exp-co-header">
+        <div class="exp-co-name">FANN — fann.art</div>
+        <div class="exp-co-location">Doha, Qatar</div>
+        <div class="exp-badge">Current</div>
+      </div>
+      <div class="exp-subroles">
+        <div class="exp-subrole">
+          <div class="exp-period">Aug 2023 – Present</div>
+          <div class="exp-role">Chief Technology Officer</div>
+          <ul class="exp-bullets">
+            <li>Architected multi-module ArtTech marketplace: blockchain provenance, AI authentication, NFC/RFID tagging, escrow, and fractional ownership.</li>
+            <li>Directed full engineering stack (React.js, Node.js, Solidity/Web3) while maintaining hands-on coding contribution alongside governance.</li>
+            <li>Led platform from R&amp;D through MVP; represented at LEAP 2025, Web Summit Qatar, and STEP Dubai.</li>
+          </ul>
+        </div>
+        <div class="exp-subrole">
+          <div class="exp-period">Jan 2025 – Present</div>
+          <div class="exp-role">Technical Lead &amp; Event Representative</div>
+          <ul class="exp-bullets">
+            <li>Represented FANN at Web Summit Qatar (2024, 2025 &amp; 2026), STEP Dubai (2024 &amp; 2025), and LEAP Riyadh (2025).</li>
+            <li>Cross-functional technical leadership: architecture standards, sprint planning, and delivery tracking.</li>
+            <li>Primary technical spokesperson in investor meetings and executive communications.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- VentraM Tech -->
+    <div class="exp-company-block" id="exp-ventrm">
+      <div class="exp-co-header">
+        <div class="exp-co-name">VentraM Tech</div>
+        <div class="exp-co-location">UAE, Remote</div>
+      </div>
+      <div class="exp-subroles single">
+        <div class="exp-subrole">
+          <div class="exp-period">Sep 2025 – Mar 2026</div>
+          <div class="exp-role">Technical Lead</div>
+          <ul class="exp-bullets">
+            <li>Directed architecture, code reviews, and sprint governance across blockchain, AI, and Web3 product lines.</li>
+            <li>Built CI/CD pipelines and scalable microservices infrastructure across all engineering output.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NfTyArt -->
+    <div class="exp-company-block" id="exp-nftyart">
+      <div class="exp-co-header">
+        <div class="exp-co-name">NfTyArt</div>
+        <div class="exp-co-location">Kuwait, Remote</div>
+      </div>
+      <div class="exp-subroles single">
+        <div class="exp-subrole">
+          <div class="exp-period">Feb 2023 – Jul 2023</div>
+          <div class="exp-role">Blockchain Developer &amp; Technical Lead</div>
+          <ul class="exp-bullets">
+            <li>Designed and deployed Solidity smart contracts: NFT issuance, ownership transfer, royalty distribution, and escrow (Etherscan-verified).</li>
+            <li>Technical leadership: code reviews, ERC standards, gas optimisation, and security patterns.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Techifort -->
+    <div class="exp-company-block" id="exp-techi">
+      <div class="exp-co-header">
+        <div class="exp-co-name">Techifort (BratsSoft Solution)</div>
+        <div class="exp-co-location">Lahore, Pakistan</div>
+      </div>
+      <div class="exp-subroles single">
+        <div class="exp-subrole">
+          <div class="exp-period">Aug 2021 – Feb 2023</div>
+          <div class="exp-role">Blockchain Developer → MERN Stack Developer</div>
+          <ul class="exp-bullets">
+            <li>Smart contracts for token issuance, staking, and liquidity pools on BNB Chain (BscScan-verified); audited for security and gas efficiency.</li>
+            <li>Built scalable full-stack apps in React.js, Node.js, Express.js, and MongoDB for multiple client products.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Freelance -->
+    <div class="exp-company-block" id="exp-freelance">
+      <div class="exp-co-header">
+        <div class="exp-co-name">Freelance</div>
+        <div class="exp-co-location">Fiverr &amp; Upwork · Remote</div>
+      </div>
+      <div class="exp-subroles single">
+        <div class="exp-subrole">
+          <div class="exp-period">Jan 2019 – Dec 2024</div>
+          <div class="exp-role">Blockchain &amp; Full-Stack Developer</div>
+          <ul class="exp-bullets">
+            <li>60+ global projects across Web3, Solidity, NFTs, Ethereum, and MERN stack.</li>
+            <li>EVM-compatible smart contracts for tokenisation, DeFi protocols, NFT marketplaces, and digital asset management.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /experience -->
+
+    <!-- Education inline -->
+    <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px;" id="edu-strip">
+      <div>
+        <div style="font-size: 0.9375rem; font-weight: 600; color: rgba(255,255,255,0.82);">BSc Software Engineering</div>
+        <div style="font-family: var(--mono); font-size: 0.62rem; color: rgba(255,255,255,0.50); margin-top: 4px; letter-spacing: 0.08em;">University of Science and Technology (UST), Pakistan · 2017–2021</div>
+      </div>
+      <div style="font-family: var(--mono); font-size: 0.62rem; color: rgba(255,255,255,0.50); letter-spacing: 0.08em;">
+        English (Professional) &nbsp;·&nbsp; Urdu (Native) &nbsp;·&nbsp; Pashto (Native)
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="p2-rule" id="rule-skills">
+    <span class="p2-rule-lbl">/ Technical Stack</span>
+    <div class="p2-rule-line"></div>
+  </div>
+
+  <div class="p2-skills">
+    <div class="skills-grid">
+
+      <div class="sk-group" id="sk-01">
+        <div class="sk-name">Blockchain &amp; Web3</div>
+        <div class="sk-items">Solidity, EVM Architecture, Web3.js, Smart Contract Auditing, DLT, Tokenization, RWA, DeFi, dApps, NFTs, Ethereum, BNB Chain, ERC-20/721/1155, Moralis</div>
+      </div>
+
+      <div class="sk-group" id="sk-02">
+        <div class="sk-name">Full-Stack (MERN)</div>
+        <div class="sk-items">React.js, Node.js, Next.js, Express.js, TypeScript, JavaScript, MongoDB, RESTful APIs, Microservices, Python</div>
+      </div>
+
+      <div class="sk-group" id="sk-03">
+        <div class="sk-name">Cloud &amp; DevOps</div>
+        <div class="sk-items">AWS, CI/CD Pipelines, Git / GitHub, Cloud Deployment, Scalable Architecture, Hybrid Environments</div>
+      </div>
+
+      <div class="sk-group" id="sk-04">
+        <div class="sk-name">AI &amp; Emerging Tech</div>
+        <div class="sk-items">AI Integration, LLM-based Solutions, Machine Learning, NLP, NFC / RFID IoT, Deep Learning, AR / VR</div>
+      </div>
+
+      <div class="sk-group" id="sk-05">
+        <div class="sk-name">Technical Leadership</div>
+        <div class="sk-items">Technical Direction, Architecture Design, Code Review Governance, Agile / Scrum, Team Mentoring, Sprint Planning, Stakeholder Management, Risk Mitigation</div>
+      </div>
+
+      <div class="sk-group" id="sk-06">
+        <div class="sk-name">Tools &amp; Methods</div>
+        <div class="sk-items">Jira, Figma, MS Project, Power BI, Agile, Scrum, Waterfall, Budget Management</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Credentials -->
+  <div class="p2-rule" id="rule-creds">
+    <span class="p2-rule-lbl">/ Credentials</span>
+    <div class="p2-rule-line"></div>
+  </div>
+
+  <div class="p2-creds" id="creds-block">
+    <div class="creds-inner">
+
+      <div>
+        <div class="cred-col-title">Certifications</div>
+
+        <!-- Overall count highlight -->
+        <div class="cert-summary-block">
+          <div class="cert-count-display">20+</div>
+          <div class="cert-summary-label">Professional Certifications</div>
+          <div class="cert-summary-issuers">IBM · PMI · NAVTTC · Cyfrin Updraft · Cognitive Class &amp; more</div>
+        </div>
+
+        <!-- PMP featured -->
+        <div class="cert-pmp-highlight">
+          <div class="cert-pmp-badge">Featured</div>
+          <div class="cert-pmp-name">PMP — Project Management Professional</div>
+          <div class="cert-pmp-issuer">Project Management Institute (PMI)</div>
+          <div class="cert-pmp-date">Completed April 2025</div>
+        </div>
+
+        <!-- Individual certifications -->
+        <div class="cred-list" style="margin-top: 28px;">
+          <div class="cred-item">
+            <div><div class="cred-name">Blockchain Basics</div><div class="cred-issuer">Cyfrin Updraft · Active</div></div>
+            <div class="cred-date">Aug 2025</div>
+          </div>
+          <div class="cred-item">
+            <div><div class="cred-name">Build an IoT Blockchain Network for a Supply Chain</div><div class="cred-issuer">IBM / Cognitive Class</div></div>
+            <div class="cred-date">Aug 2022</div>
+          </div>
+          <div class="cred-item">
+            <div><div class="cred-name">Blockchain Essentials</div><div class="cred-issuer">IBM / Cognitive Class</div></div>
+            <div class="cred-date">Aug 2022</div>
+          </div>
+          <div class="cred-item">
+            <div><div class="cred-name">Blockchain Development</div><div class="cred-issuer">NAVTTC</div></div>
+            <div class="cred-date">Mar 2022</div>
+          </div>
+          <div class="cred-item">
+            <div><div class="cred-name">Deep Learning Fundamentals</div><div class="cred-issuer">IBM / Cognitive Class</div></div>
+            <div class="cred-date">Aug 2022</div>
+          </div>
+          <div class="cred-item">
+            <div><div class="cred-name">Introduction to Cloud</div><div class="cred-issuer">IBM / Cognitive Class</div></div>
+            <div class="cred-date">Aug 2022</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="cred-col-title">Conferences &amp; Representation</div>
+        <div class="conf-grid">
+          <div class="conf-item">
+            <div class="conf-item-name">LEAP Conference</div>
+            <div class="conf-item-detail">Riyadh, Saudi Arabia · 100,000+ attendees</div>
+            <div class="conf-item-year">2025</div>
+          </div>
+          <div class="conf-item">
+            <div class="conf-item-name">Web Summit Qatar</div>
+            <div class="conf-item-detail">Doha, Qatar · FANN Representative</div>
+            <div class="conf-item-year">2024 · 2025 · 2026</div>
+          </div>
+          <div class="conf-item">
+            <div class="conf-item-name">STEP Conference</div>
+            <div class="conf-item-detail">Dubai, UAE · Tech &amp; Startup Summit</div>
+            <div class="conf-item-year">2024 · 2025</div>
+          </div>
+          <div class="conf-item">
+            <div class="conf-item-name">Money Expo Qatar</div>
+            <div class="conf-item-detail">Doha, Qatar · Fintech</div>
+            <div class="conf-item-year">Dec 2025</div>
+          </div>
+          <div class="conf-item">
+            <div class="conf-item-name">MENA Tech Festival</div>
+            <div class="conf-item-detail">Regional Tech Ecosystem</div>
+            <div class="conf-item-year">Dec 2025</div>
+          </div>
+        </div>
+        <div style="margin-top:32px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.05);">
+          <div class="cred-col-title" style="margin-bottom:10px;">Market Presence</div>
+          <div style="font-size:0.8125rem; color:rgba(255,255,255,0.58); line-height:1.7; font-family:var(--mono);">Doha, Qatar · Valid transferable GCC employment visa · Active Qatar &amp; GCC tech ecosystem · Aligned with Qatar National Vision 2030</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="p2-rule" id="rule-contact">
+    <span class="p2-rule-lbl">/ Contact</span>
+    <div class="p2-rule-line"></div>
+  </div>
+
+  <div class="p2-contact" id="contact-block">
+    <h2 class="contact-headline">
+      Let's build<br>
+      <span class="dim">something that</span><br>
+      matters.
+    </h2>
+    <div class="contact-row">
+      <div class="contact-item">
+        <span class="contact-lbl">Email</span>
+        <a href="mailto:info@ahmadsabil.com" class="contact-val">info@ahmadsabil.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-lbl">LinkedIn</span>
+        <a href="https://linkedin.com/in/sabilahmad" target="_blank" rel="noopener noreferrer" class="contact-val">linkedin.com/in/sabilahmad</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-lbl">Phone</span>
+        <a href="tel:+97450389351" class="contact-val">+974 50389351</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="p2-footer">
+    <span class="footer-left">© 2026 Ahmad Sabil &nbsp;·&nbsp; ahmadsabil.com</span>
+    <span class="footer-right">Technical Lead · Blockchain Full-Stack Architect · Doha, Qatar</span>
+  </div>
+
+</section><!-- /p2 -->
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ═══════════════════════════════════════════════════════
+   THREE.JS — Crystal Lattice Scene
+═══════════════════════════════════════════════════════ */
+(function() {
+  const canvas = document.getElementById('c');
+  const W = () => window.innerWidth;
+  const H = () => window.innerHeight;
+
+  /* ── Renderer ── */
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(W(), H());
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setClearColor(0x000000, 0);
+
+  /* ── Scene & Camera ── */
+  const scene  = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, W() / H(), 0.1, 200);
+  camera.position.set(0, 0, 9);
+
+  /* ── Colors ── */
+  const COL_LINE = new THREE.Color(0x00C9A7);
+  const COL_NODE = new THREE.Color(0xC8961A);
+  const COL_NODE_B = new THREE.Color(0xE8B84B);
+
+  /* ── Generate lattice node positions ── */
+  // Modified icosahedron-like lattice with extra points
+  function genLatticePoints(count) {
+    const pts = [];
+    const phi = Math.PI * (3 - Math.sqrt(5)); // golden angle
+    for (let i = 0; i < count; i++) {
+      const y   = 1 - (i / (count - 1)) * 2;
+      const r   = Math.sqrt(1 - y * y);
+      const θ   = phi * i;
+      const x   = Math.cos(θ) * r;
+      const z   = Math.sin(θ) * r;
+      // Scale to radius 2.6 with subtle noise
+      const noise = 0.15 * (Math.sin(i * 1.7) * Math.cos(i * 0.9));
+      const scale = 2.6 + noise;
+      pts.push(new THREE.Vector3(x * scale, y * scale, z * scale));
+    }
+    return pts;
+  }
+
+  const NODE_COUNT = window.innerWidth < 600 ? 48 : 72;
+  const targetPos  = genLatticePoints(NODE_COUNT);
+
+  /* ── Node group — InstancedMesh ── */
+  const nodeGeo  = new THREE.SphereGeometry(0.055, 8, 8);
+  const nodeMat  = new THREE.MeshBasicMaterial({ color: COL_NODE });
+  const nodeMesh = new THREE.InstancedMesh(nodeGeo, nodeMat, NODE_COUNT);
+  nodeMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  scene.add(nodeMesh);
+
+  // Start all nodes at center, animate to target
+  const currentPos = targetPos.map(() => new THREE.Vector3(0, 0, 0));
+  const dummy      = new THREE.Object3D();
+
+  function updateNodeMesh() {
+    for (let i = 0; i < NODE_COUNT; i++) {
+      dummy.position.copy(currentPos[i]);
+      dummy.updateMatrix();
+      nodeMesh.setMatrixAt(i, dummy.matrix);
+    }
+    nodeMesh.instanceMatrix.needsUpdate = true;
+  }
+  updateNodeMesh();
+
+  /* ── Line segments between nearby nodes ── */
+  const LINK_DIST  = 1.85;
+  const MAX_SEGS   = 400;
+  const linePosArr = new Float32Array(MAX_SEGS * 6);
+  const lineColArr = new Float32Array(MAX_SEGS * 6);
+  const lineGeo    = new THREE.BufferGeometry();
+  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePosArr, 3));
+  lineGeo.setAttribute('color',    new THREE.BufferAttribute(lineColArr, 3));
+  const lineMat  = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0 });
+  const lineSegs = new THREE.LineSegments(lineGeo, lineMat);
+  scene.add(lineSegs);
+
+  // Crystal group for unified transforms
+  const crystalGroup = new THREE.Group();
+  crystalGroup.add(nodeMesh);
+  crystalGroup.add(lineSegs);
+  scene.add(crystalGroup);
+  // Remove from scene individually since they're in the group
+  scene.remove(nodeMesh);
+  scene.remove(lineSegs);
+
+  let segCount = 0;
+
+  function updateLines() {
+    segCount = 0;
+    for (let i = 0; i < NODE_COUNT && segCount < MAX_SEGS; i++) {
+      for (let j = i + 1; j < NODE_COUNT && segCount < MAX_SEGS; j++) {
+        const d = currentPos[i].distanceTo(currentPos[j]);
+        if (d < LINK_DIST) {
+          const a = Math.pow(1 - d / LINK_DIST, 1.5);
+          const b = segCount * 6;
+          linePosArr[b]   = currentPos[i].x; linePosArr[b+1] = currentPos[i].y; linePosArr[b+2] = currentPos[i].z;
+          linePosArr[b+3] = currentPos[j].x; linePosArr[b+4] = currentPos[j].y; linePosArr[b+5] = currentPos[j].z;
+          lineColArr[b]   = COL_LINE.r * a; lineColArr[b+1] = COL_LINE.g * a; lineColArr[b+2] = COL_LINE.b * a;
+          lineColArr[b+3] = COL_LINE.r * a; lineColArr[b+4] = COL_LINE.g * a; lineColArr[b+5] = COL_LINE.b * a;
+          segCount++;
+        }
+      }
+    }
+    lineGeo.setDrawRange(0, segCount * 2);
+    lineGeo.attributes.position.needsUpdate = true;
+    lineGeo.attributes.color.needsUpdate    = true;
+  }
+
+  /* ── Glow sphere (additive, no geometry detail needed) ── */
+  const glowGeo = new THREE.SphereGeometry(3.2, 32, 32);
+  const glowMat = new THREE.MeshBasicMaterial({
+    color: 0x00C9A7,
+    transparent: true,
+    opacity: 0,
+    side: THREE.BackSide,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  });
+  const glowMesh = new THREE.Mesh(glowGeo, glowMat);
+  crystalGroup.add(glowMesh);
+
+  /* ── Scene state driven by GSAP ── */
+  const state = {
+    assembleProgress: 0,    // 0→1: nodes fly to positions
+    lineOpacity:      0,    // 0→1: lines fade in
+    glowOpacity:      0,    // 0→0.06
+    crystalScale:     1,
+    crystalX:         0,    // horizontal drift through sections
+    crystalY:         0,    // vertical offset for scroll
+    crystalOpacity:   1,    // 1→0 as we enter panel 2
+    cameraZ:          9,
+    rotSpeed:         0.0025,
+    mouseX:           0,
+    mouseY:           0,
+  };
+
+  /* ── Mouse tracking ── */
+  window.addEventListener('mousemove', e => {
+    state.mouseX = (e.clientX / W() - 0.5) * 1.2;
+    state.mouseY = (e.clientY / H() - 0.5) * 0.8;
+  });
+
+  /* ── Render loop ── */
+  let frame = 0;
+  let lastTime = 0;
+
+  function render(time) {
+    requestAnimationFrame(render);
+    frame++;
+    const dt = Math.min((time - lastTime) / 1000, 0.05);
+    lastTime = time;
+
+    // Interpolate node positions based on assembleProgress
+    for (let i = 0; i < NODE_COUNT; i++) {
+      currentPos[i].lerp(targetPos[i], state.assembleProgress);
+    }
+    updateNodeMesh();
+
+    // Update lines every 2 frames
+    if (frame % 2 === 0) updateLines();
+
+    // Crystal group rotation (slow Y-axis)
+    crystalGroup.rotation.y += state.rotSpeed;
+    crystalGroup.rotation.x = state.mouseY * 0.18;
+
+    // Camera mouse parallax (for panel 1)
+    camera.position.x += (state.mouseX * 0.6 - camera.position.x) * 0.04;
+    camera.position.y += (-state.mouseY * 0.4 - camera.position.y) * 0.04;
+    camera.position.z = state.cameraZ;
+
+    // Crystal group positional offsets
+    crystalGroup.position.x = state.crystalX;
+    crystalGroup.position.y = state.crystalY;
+
+    // Crystal scale
+    const breathe = 1 + Math.sin(time * 0.0008) * 0.018;
+    crystalGroup.scale.setScalar(state.crystalScale * breathe);
+
+    // Opacities
+    lineMat.opacity  = state.lineOpacity;
+    glowMat.opacity  = state.glowOpacity;
+    nodeMat.opacity  = state.crystalOpacity;
+    nodeMat.transparent = true;
+    lineMat.transparent = true;
+    crystalGroup.visible = state.crystalOpacity > 0.01;
+
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(render);
+
+  /* ── Resize ── */
+  window.addEventListener('resize', () => {
+    renderer.setSize(W(), H());
+    camera.aspect = W() / H();
+    camera.updateProjectionMatrix();
+  });
+
+  /* ════════════════════════════════════════════════
+     GSAP ANIMATIONS
+  ════════════════════════════════════════════════ */
+
+  /* ── Phase 1: Load-in sequence ── */
+  const loadTl = gsap.timeline({ delay: 0.3 });
+
+  // Crystal assembles from center
+  loadTl.to(state, {
+    assembleProgress: 1,
+    duration: 2.2,
+    ease: 'power3.out',
+  }, 0);
+
+  // Lines appear
+  loadTl.to(state, {
+    lineOpacity: 0.55,
+    duration: 1.6,
+    ease: 'power2.inOut',
+  }, 0.6);
+
+  // Glow fades in
+  loadTl.to(state, {
+    glowOpacity: 0.055,
+    duration: 1.8,
+    ease: 'power2.inOut',
+  }, 0.8);
+
+  // Nav fades in
+  loadTl.to(['#nav-mark', '#nav-links'], {
+    opacity: 1, duration: 0.8, ease: 'power2.out',
+  }, 1.0);
+
+  // Eyebrow
+  loadTl.to('#p1-eyebrow', {
+    opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+  }, 1.1);
+
+  // Name
+  loadTl.to('#p1-name', {
+    opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+  }, 1.25);
+
+  // Title
+  loadTl.to('#p1-title', {
+    opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+  }, 1.45);
+
+  // Stats
+  loadTl.to('#p1-stats', {
+    opacity: 1, duration: 0.7, ease: 'power2.out',
+  }, 1.6);
+
+  // Scroll indicator
+  loadTl.to('#p1-scroll', {
+    opacity: 1, duration: 0.6,
+  }, 1.9);
+
+  // Stat counters
+  loadTl.add(() => {
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = +el.dataset.count;
+      const sfx    = el.dataset.sfx || '+';
+      gsap.to({ val: 0 }, {
+        val: target,
+        duration: 1.4,
+        ease: 'power2.out',
+        onUpdate: function() { el.textContent = Math.floor(this.targets()[0].val) + sfx; },
+      });
+    });
+  }, 1.6);
+
+  /* ── Phase 2: Scroll transition (panel 1 → 2) ── */
+  // The transition-zone provides 100vh of scroll space for the animation
+  const scrollTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#transition-zone',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1.8,
+    },
+  });
+
+  // Crystal expands and fades as user scrolls through transition-zone
+  scrollTl
+    .to(state, { crystalScale: 3.5, duration: 1 }, 0)
+    .to(state, { crystalOpacity: 0, duration: 0.7 }, 0.3)
+    .to(state, { lineOpacity: 0, duration: 0.5 }, 0.3)
+    .to(state, { glowOpacity: 0, duration: 0.5 }, 0.3)
+    .to(state, { cameraZ: 5, duration: 1 }, 0)
+    // Panel 1 text exits
+    .to(['#p1-name', '#p1-title', '#p1-eyebrow', '#p1-stats', '#p1-scroll'], {
+      opacity: 0, y: -60, stagger: 0.04, duration: 0.5, ease: 'power2.in',
+    }, 0);
+
+  /* ── Phase 3: Panel 2 content reveal ── */
+  // Helper: reveal element on scroll
+  function revealOn(el, trigger, options = {}) {
+    gsap.fromTo(el,
+      { opacity: 0, y: options.y ?? 48 },
+      {
+        opacity: 1, y: 0,
+        duration: options.duration ?? 0.9,
+        ease: 'power2.out',
+        delay: options.delay ?? 0,
+        scrollTrigger: {
+          trigger: trigger || el,
+          start: options.start ?? 'top 82%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+
+  // Statement
+  revealOn('#stmt-eyebrow', '#stmt-eyebrow', { y: 20, duration: 0.6 });
+  revealOn('#stmt-text',    '#stmt-text',    { y: 40, duration: 1.0, delay: 0.1 });
+
+  // Rules
+  ['#rule-projects', '#rule-exp', '#rule-skills', '#rule-creds', '#rule-contact'].forEach(id => {
+    revealOn(id, id, { y: 20, duration: 0.7 });
+  });
+
+  // Projects
+  ['#proj-01','#proj-02','#proj-03','#proj-04','#proj-05'].forEach((id, i) => {
+    revealOn(id, id, { y: 56, duration: 0.85, delay: i * 0.04 });
+  });
+
+  // Experience company blocks
+  ['#exp-fann','#exp-ventrm','#exp-nftyart','#exp-techi','#exp-freelance'].forEach((id, i) => {
+    revealOn(id, id, { y: 40, duration: 0.85, delay: i * 0.04 });
+  });
+
+  revealOn('#edu-strip', '#edu-strip', { y: 24, duration: 0.7 });
+
+  // Skills
+  ['#sk-01','#sk-02','#sk-03','#sk-04','#sk-05','#sk-06'].forEach((id, i) => {
+    revealOn(id, id, { y: 32, duration: 0.7, delay: i * 0.06 });
+  });
+
+  // Creds + contact
+  revealOn('#creds-block',    '#creds-block',    { y: 40 });
+  revealOn('#contact-block',  '#contact-block',  { y: 60, duration: 1.1 });
+
+  /* ── Phase 4: Scrub-driven crystal parallax through Panel 2 ── */
+
+  // Panel 2 entry — crystal re-emerges (fires once, sets base state)
+  ScrollTrigger.create({
+    trigger: '#p2',
+    start: 'top 40%',
+    onEnter: () => gsap.to(state, {
+      crystalScale: 0.48, crystalOpacity: 0.22, lineOpacity: 0.10,
+      glowOpacity: 0.015, crystalY: 0, rotSpeed: 0.0012, cameraZ: 9,
+      duration: 2.0, ease: 'power2.inOut',
+    }),
+  });
+
+  // ── Opacity / scale pulse: single scrub across all of Panel 2 ──
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#p2',
+      start: 'top bottom',
+      end: 'bottom bottom',
+      scrub: 2.5,
+    },
+  })
+    .fromTo(state, { crystalOpacity: 0 },   { crystalOpacity: 0.28, duration: 0.08 }, 0)
+    .to(state,   { crystalOpacity: 0.22, duration: 0.22 }, 0.08)  // projects
+    .to(state,   { crystalOpacity: 0.18, duration: 0.22 }, 0.30)  // experience
+    .to(state,   { crystalOpacity: 0.32, duration: 0.18 }, 0.52)  // skills — brightest
+    .to(state,   { crystalOpacity: 0.20, duration: 0.15 }, 0.70)  // creds
+    .to(state,   { crystalOpacity: 0.42, duration: 0.15 }, 0.85); // contact — most prominent
+
+  // ── Scale pulse across Panel 2 ──
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#p2',
+      start: 'top bottom',
+      end: 'bottom bottom',
+      scrub: 3,
+    },
+  })
+    .fromTo(state, { crystalScale: 0.44 }, { crystalScale: 0.52, duration: 0.3 }, 0)
+    .to(state, { crystalScale: 0.40, duration: 0.2 }, 0.3)
+    .to(state, { crystalScale: 0.60, duration: 0.2 }, 0.5)   // skills peak
+    .to(state, { crystalScale: 0.44, duration: 0.15 }, 0.7)
+    .to(state, { crystalScale: 0.72, duration: 0.15 }, 0.85); // contact forward
+
+  // ── X-axis parallax drift scrubbed per section ──
+
+  // Profile statement → Projects: crystal enters from right
+  gsap.timeline({
+    scrollTrigger: { trigger: '.p2-statement', start: 'top 90%', end: 'bottom 10%', scrub: 2 },
+  }).fromTo(state, { crystalX: 2.8 }, { crystalX: 1.0 });
+
+  // Projects: sweeps left across viewport as user reads down
+  gsap.timeline({
+    scrollTrigger: { trigger: '.p2-projects', start: 'top 90%', end: 'bottom 10%', scrub: 2 },
+  }).fromTo(state, { crystalX: 1.0 }, { crystalX: -2.2 });
+
+  // Experience: reverses — drifts back right
+  gsap.timeline({
+    scrollTrigger: { trigger: '.p2-experience', start: 'top 90%', end: 'bottom 10%', scrub: 2 },
+  }).fromTo(state, { crystalX: -2.2 }, { crystalX: 1.8 });
+
+  // Skills: sweeps to centre
+  gsap.timeline({
+    scrollTrigger: { trigger: '.p2-skills', start: 'top 90%', end: 'bottom 10%', scrub: 2 },
+  }).fromTo(state, { crystalX: 1.8 }, { crystalX: 0 });
+
+  // Credentials: gentle drift right
+  gsap.timeline({
+    scrollTrigger: { trigger: '.p2-creds', start: 'top 90%', end: 'bottom 10%', scrub: 2 },
+  }).fromTo(state, { crystalX: 0 }, { crystalX: 1.2 });
+
+  // Contact: returns to centre, glow increases
+  gsap.timeline({
+    scrollTrigger: { trigger: '.p2-contact', start: 'top 90%', end: 'bottom 20%', scrub: 2 },
+  })
+    .fromTo(state, { crystalX: 1.2 }, { crystalX: 0 })
+    .fromTo(state, { glowOpacity: 0.015 }, { glowOpacity: 0.055 }, 0)
+    .fromTo(state, { rotSpeed: 0.0012 }, { rotSpeed: 0.0022 }, 0);
+
+  // ── Line opacity scrubbed (lines get crisper toward skills/contact) ──
+  gsap.timeline({
+    scrollTrigger: { trigger: '#p2', start: 'top bottom', end: 'bottom bottom', scrub: 3 },
+  })
+    .fromTo(state, { lineOpacity: 0.06 }, { lineOpacity: 0.16, duration: 0.5 }, 0.5) // skills
+    .to(state, { lineOpacity: 0.10, duration: 0.2 }, 0.7)
+    .to(state, { lineOpacity: 0.20, duration: 0.3 }, 0.85); // contact
+
+})();
+</script>
+
+</body>
+</html>
